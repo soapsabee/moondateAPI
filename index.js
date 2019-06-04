@@ -14,6 +14,6 @@ app.get('/', (req, res) => {
   res.send('Hello GET by bellaTeam')
 });
 
-app.get('/api/:year/:month/:day', findData.findDay);
+app.get('/findDay/:year/:month/:day', findData.findDay);
 
 exports.api = functions.https.onRequest(app);
