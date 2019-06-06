@@ -1,4 +1,3 @@
-const functions = require('firebase-functions');
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -14,6 +13,9 @@ app.get('/', (req, res) => {
   res.send('Hello GET by bellaTeam')
 });
 
-app.get('/findDay/:year/:month/:day', findData.findDay);
+app.get('/api/findDay/:year/:month/:day', findData.findDay);
 
-exports.api = functions.https.onRequest(app);
+var port = process.env.PORT || 3000;
+app.listen(port, function () {
+    console.log('App is running on http://localhost:' + port);
+});
